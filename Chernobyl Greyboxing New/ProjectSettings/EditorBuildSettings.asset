@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 4f55ab819c3308440a69f72db79ff4b3
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: a7faa3817ed00aa4cbe589e0611868f6
+  - enabled: 0
+    path: Assets/NewGreyboxingThing.unity
+    guid: 7c4c8eec1639bcf42bce430b5ff28da3
   m_configObjects: {}
