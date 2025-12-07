@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: a7faa3817ed00aa4cbe589e0611868f6
   - enabled: 0
-    path: Assets/NewGreyboxingThing.unity
+    path: Assets/Scenes/NewGreyboxingThing.unity
     guid: 7c4c8eec1639bcf42bce430b5ff28da3
   m_configObjects: {}
