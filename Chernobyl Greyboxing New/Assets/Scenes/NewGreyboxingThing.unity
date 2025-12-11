@@ -742,6 +742,10 @@ PrefabInstance:
       propertyPath: m_BounceIntensity
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4295980301584131295, guid: 8f23d538a687f494198a9d67c919def8, type: 3}
+      propertyPath: m_Shadows.m_Resolution
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4682921872277945884, guid: 8f23d538a687f494198a9d67c919def8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
