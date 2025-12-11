@@ -970,6 +970,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6635102002446334132, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2182,7 +2186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4599f29af2d0045469727fe146359b85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.3
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4599f29af2d0045469727fe146359b85, type: 3}
       propertyPath: m_LocalRotation.w
