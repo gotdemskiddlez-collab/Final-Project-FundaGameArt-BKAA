@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 4f55ab819c3308440a69f72db79ff4b3
+    path: Assets/Scenes/NewStartMenu.unity
+    guid: a3803ebe94f8e30499757ddc8f99e11e
   - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
-    guid: a7faa3817ed00aa4cbe589e0611868f6
-  - enabled: 0
+    path: Assets/Scenes/InteriorTutorial.unity
+    guid: 3565fb452e9a3d44694453735a266aa6
+  - enabled: 1
     path: Assets/Scenes/NewGreyboxingThing.unity
     guid: 7c4c8eec1639bcf42bce430b5ff28da3
   m_configObjects: {}
