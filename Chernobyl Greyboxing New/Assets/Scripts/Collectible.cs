@@ -3,16 +3,20 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
     public bool isCollected = false;
+    public CollectibleChainManager chainManager;
 
     private void OnTriggerEnter(Collider other)
     {
-        // What should happen if something with the Player tag enters the trigger box?
-        if (other.gameObject.tag == "Player")
-        {
-            Debug.Log($"Collect: {this.name}");
-            isCollected = true;
+        if (!other.CompareTag("Player")) return;
 
-            Destroy(this.gameObject);
-        }
+        Debug.Log($"[Collectible] Collected: {name}", this);
+        isCollected = true;
+
+        if (chainManager != null)
+            chainManager.NotifyCollected(this);
+        else
+            Debug.LogError($"[Collectible] No chainManager assigned on {name}", this);
+
+        Destroy(gameObject);
     }
 }
