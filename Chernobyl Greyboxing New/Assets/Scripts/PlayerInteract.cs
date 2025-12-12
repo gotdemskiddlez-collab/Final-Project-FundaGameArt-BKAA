@@ -7,6 +7,8 @@ public class PlayerInteract : MonoBehaviour
 {
     public float interactDistance;
     public TMP_Text interactText;
+    [SerializeField] private Collectible storedCollectible;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,22 +26,42 @@ public class PlayerInteract : MonoBehaviour
     {
         RaycastHit hit;
         if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, interactDistance)) //here we are sending out a raycast in front of the player, which is constantly checking if it is touching objects that we can interact with, so it can prompt the player to interact. in this case, we just have an interactable door, so if the player raycast hits an object tagged as Door, it will show us the prompt that this object is interactable.
-        { 
+        {
             //this raycast also uses a distance we set in the inspector, which we can mess around with so make sure we can't interact with things too far away from us, as well as to make sure we can interact with things that feel close enough to be able to. 
-            if (hit.collider.CompareTag("Door"))
+            //if (hit.collider.CompareTag("Door"))
+            //{
+            //    if (interactText != null)
+            //    {
+            //        interactText.text = "E";
+            //    }
+            //}
+            //else if (hit.collider.CompareTag("Collect"))
+            if (hit.collider.CompareTag("Collect"))
             {
+                storedCollectible = hit.collider.gameObject.GetComponent<Collectible>();
+                storedCollectible.ToggleHighlight(true);
                 if (interactText != null)
                 {
-                    interactText.text = "E";
+                    interactText.text = "Press E to Pick Up";
                 }
             }
             else
             {
+                if (storedCollectible)
+                {
+                    storedCollectible.ToggleHighlight(false);
+                    storedCollectible = null;
+                }
                 interactText.text = "";
             }
         }
         else
         {
+            if (storedCollectible)
+            {
+                storedCollectible.ToggleHighlight(false);
+                storedCollectible = null;
+            }
             interactText.text = "";
         }
     }
@@ -52,10 +74,16 @@ public class PlayerInteract : MonoBehaviour
             if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, interactDistance))
             {
                 Debug.Log(hit.collider.name);
-                if (hit.collider.CompareTag("Door"))
+                //if (hit.collider.CompareTag("Door"))
+                //{
+                //    Debug.Log("hit door");
+                //    hit.collider.gameObject.GetComponent<DoorOpen>().Interact();
+                //}
+                //else if (hit.collider.CompareTag("Collect"))
+                if (hit.collider.CompareTag("Collect"))
                 {
-                    Debug.Log("hit door");
-                    hit.collider.gameObject.GetComponent<DoorOpen>().Interact();
+                    Debug.Log("hit collectible object");
+                    hit.collider.gameObject.GetComponent<Collectible>();
                 }
                 else
                 {
@@ -68,4 +96,4 @@ public class PlayerInteract : MonoBehaviour
 
 
 
-    }
+}

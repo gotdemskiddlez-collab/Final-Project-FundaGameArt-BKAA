@@ -4,10 +4,12 @@ public class Collectible : MonoBehaviour
 {
     public bool isCollected = false;
     public CollectibleChainManager chainManager;
+    public GameObject highlightLight;
 
-    private void OnTriggerEnter(Collider other)
+    public void Collect()
+    //private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        //if (!other.CompareTag("Player")) return;
 
         Debug.Log($"[Collectible] Collected: {name}", this);
         isCollected = true;
@@ -18,5 +20,10 @@ public class Collectible : MonoBehaviour
             Debug.LogError($"[Collectible] No chainManager assigned on {name}", this);
 
         Destroy(gameObject);
+    }
+
+    public void ToggleHighlight(bool turnOn)
+    {
+        highlightLight.SetActive(turnOn);
     }
 }
