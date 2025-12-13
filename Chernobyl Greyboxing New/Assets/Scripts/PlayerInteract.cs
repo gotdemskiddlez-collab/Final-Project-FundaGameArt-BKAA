@@ -42,7 +42,7 @@ public class PlayerInteract : MonoBehaviour
                 storedCollectible.ToggleHighlight(true);
                 if (interactText != null)
                 {
-                    interactText.text = "Press E to Pick Up";
+                    interactText.text = "Press E To Pick Up";
                 }
             }
             else
