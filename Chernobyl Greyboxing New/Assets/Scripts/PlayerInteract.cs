@@ -83,7 +83,7 @@ public class PlayerInteract : MonoBehaviour
                 if (hit.collider.CompareTag("Collect"))
                 {
                     Debug.Log("hit collectible object");
-                    hit.collider.gameObject.GetComponent<Collectible>();
+                    hit.collider.gameObject.GetComponent<Collectible>().Collect();
                 }
                 else
                 {

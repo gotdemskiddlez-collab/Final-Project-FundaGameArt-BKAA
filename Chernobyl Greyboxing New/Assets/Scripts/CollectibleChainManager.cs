@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CollectibleChainManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class CollectibleChainManager : MonoBehaviour
 
     private int currentIndex = 0;
     private GameObject currentInstance;
+
+    public UnityEvent endBehaviour;
 
     void Start()
     {
@@ -60,8 +63,9 @@ public class CollectibleChainManager : MonoBehaviour
         }
 
         Debug.Log($"[ChainManager] Spawning '{prefab.name}' at spawn point {index} ({spawnPoint.position})", this);
-        currentInstance = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
-        if (spawnedParent != null) currentInstance.transform.SetParent(spawnedParent, true);
+        currentInstance = Instantiate(prefab, spawnPoint.position, Quaternion.identity, spawnPoint);
+        currentInstance.transform.localRotation = Quaternion.identity;
+        //if (spawnedParent != null) currentInstance.transform.SetParent(spawnedParent, true);
 
         // Ensure prefab already has Collectible script on it in the project (no runtime add)
         var collectibleComp = currentInstance.GetComponent<Collectible>();
@@ -104,6 +108,7 @@ public class CollectibleChainManager : MonoBehaviour
             else
             {
                 Debug.Log("[ChainManager] Chain finished. No more spawns.", this);
+                endBehaviour.Invoke();
                 currentInstance = null;
                 enabled = false;
                 return;

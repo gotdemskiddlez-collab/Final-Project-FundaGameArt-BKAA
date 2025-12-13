@@ -30,30 +30,30 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        TrackCollectibles();
-    }
+    //void Update()
+    //{
+    //    TrackCollectibles();
+    //}
 
     // Check our list of Collectibles to see if any of them have been collected by the player
-    private void TrackCollectibles()
-    {
-        foreach (Collectible collectible in collectibles)
-        {
-            if (collectible.isCollected)
-            {
-                AddToCollectibleCount();
-            }
+    //private void TrackCollectibles()
+    //{
+    //    foreach (Collectible collectible in collectibles)
+    //    {
+    //        if (collectible.isCollected)
+    //        {
+    //            AddToCollectibleCount();
+    //        }
 
-            // If the collectible is destroyed, remove it from the list and start the loop over
-            // Without this check, we will keep adding the same collectible to the count every time TrackCollectibles() is called
-            if (collectible == null)
-            {
-                collectibles.Remove(collectible);
-                break;
-            }
-        }
-    }
+    //        // If the collectible is destroyed, remove it from the list and start the loop over
+    //        // Without this check, we will keep adding the same collectible to the count every time TrackCollectibles() is called
+    //        if (collectible == null)
+    //        {
+    //            collectibles.Remove(collectible);
+    //            break;
+    //        }
+    //    }
+    //}
 
     private void AddToCollectibleCount()
     {
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         Debug.Log("Game over!");
         winScreen.SetActive(true);
@@ -89,6 +89,12 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Start Game");
         StartCoroutine(SceneLoadTimer(1));
+    }
+
+    public void LoadScene(int i)
+    {
+        Debug.Log($"Load scene at build index {i}");
+        StartCoroutine(SceneLoadTimer(i));
     }
 
     public void CloseApplication()
