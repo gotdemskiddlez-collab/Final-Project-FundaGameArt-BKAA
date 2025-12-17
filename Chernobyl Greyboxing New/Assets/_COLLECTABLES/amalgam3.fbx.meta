@@ -3,7 +3,22 @@ guid: e40bd0ba31cc4a44c909bd5fed069398
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fox
+    second: {fileID: 2100000, guid: 62119ccf81db51c4e939e17566e869bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foxleg
+    second: {fileID: 2100000, guid: 40dfa6d390381854eb003c7596f29275, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rooster
+    second: {fileID: 2100000, guid: c5b9b78e538ed044093aa3b5404b5ed2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
